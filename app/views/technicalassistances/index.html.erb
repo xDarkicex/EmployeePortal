@@ -2,7 +2,7 @@
 
 <h1>Listing Technicalassistances</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -19,10 +19,10 @@
         <td><%= technicalassistance.title %></td>
         <td><%= technicalassistance.device %></td>
         <td><%= technicalassistance.descripton %></td>
-        <td><%= technicalassistance.time %></td>
-        <td><%= link_to 'Show', technicalassistance %></td>
-        <td><%= link_to 'Edit', edit_technicalassistance_path(technicalassistance) %></td>
-        <td><%= link_to 'Destroy', technicalassistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= technicalassistance.created_at %></td>
+        <td><%= link_to 'Show', technicalassistance, class:"btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_technicalassistance_path(technicalassistance), class:"btn btn-default" %></td>
+        <td><%= link_to 'Destroy', technicalassistance, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'File Help Request', new_technicalassistance_path %>
+<%= link_to 'File Help Request', new_technicalassistance_path, class:"btn btn-default"  %>

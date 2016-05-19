@@ -1,13 +1,11 @@
 class EmployeesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
   # GET /employees.json
   def index
     @employees = Employee.all
-  end
-  def name
-    name = params[:firstname]+params[:lastname]
   end
   # GET /employees/1
   # GET /employees/1.json

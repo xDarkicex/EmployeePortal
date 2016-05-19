@@ -12,20 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label "Employee Name"%><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :device %><br>
-    <%= f.text_field :device %>
+
+    <%= f.text_field :device, placeholder: "Please List Device model, be specific"%>
   </div>
   <div class="field">
     <%= f.label :descripton %><br>
-    <%= f.text_field :descripton %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <%= f.text_area :descripton,  placeholder: "Please provide descripton of your error/s here....", rows: 5, cols: 100%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Technicalassistances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Device</th>
+      <th>Descripton</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @technicalassistances.each do |technicalassistance| %>
+      <tr>
+        <td><%= technicalassistance.title %></td>
+        <td><%= technicalassistance.device %></td>
+        <td><%= technicalassistance.descripton %></td>
+        <td><%= technicalassistance.time %></td>
+        <td><%= link_to 'Show', technicalassistance %></td>
+        <td><%= link_to 'Edit', edit_technicalassistance_path(technicalassistance) %></td>
+        <td><%= link_to 'Destroy', technicalassistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'File Help Request', new_technicalassistance_path %>

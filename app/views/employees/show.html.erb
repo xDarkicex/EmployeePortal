@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo</strong>
+  <%= image_tag @employee.avatar.url(:medium), class: "img-thumbnail" %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+<p>
+  <strong>Jobtitle:</strong>
+  <%= @employee.jobtitle %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @employee.skills %>
+</p>
+<p>
+  <strong>Bio:</strong>
+  <%= @employee.bio %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @employee.gender %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employee.phone %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee), class:"btn btn-default" %> |
+<%= link_to 'Back', employees_path, class:"btn btn-default" %>

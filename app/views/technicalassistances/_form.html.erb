@@ -1,0 +1,33 @@
+<%= form_for(@technicalassistance) do |f| %>
+  <% if @technicalassistance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@technicalassistance.errors.count, "error") %> prohibited this technicalassistance from being saved:</h2>
+
+      <ul>
+      <% @technicalassistance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :device %><br>
+    <%= f.text_field :device %>
+  </div>
+  <div class="field">
+    <%= f.label :descripton %><br>
+    <%= f.text_field :descripton %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

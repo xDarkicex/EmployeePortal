@@ -9,6 +9,7 @@ class EmployeesController < ApplicationController
   end
 
   def show
+    @employee = User.find(params[:id])
   end
   protected
     # Use callbacks to share common setup or constraints between actions.

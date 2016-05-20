@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
 
+  root 'welcome#index'
+  match 'users/:id' => 'employees#show', via: :get
+  # or
+  get 'users/:id' => 'employees#show'
+  # or
+  resources :users, only: [:show]
+  delete 'employees/sign_out'
   devise_for :users
   resources :technicalassistances
   resources :pdfs
   resources :products
   resources :employees
+
+    devise_for :admins
+    resources :technicalassistances
+    resources :pdfs
+    resources :products
+    resources :employees
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

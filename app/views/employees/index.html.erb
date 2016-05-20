@@ -26,8 +26,8 @@
         <td><%= employee.gender %></td>
         <td><%= employee.email %></td>
         <td><%= employee.phone %></td>
-        <td><%= link_to 'Show', employee, class:"btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee), class:"btn btn-default" %></td>
+        <td><%= link_to 'Show', user_path(employee), class:"btn btn-default" %></td>
+        <td><%= link_to 'Edit', edit_user_registration_path, class:"btn btn-default" %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default" %></td>
       </tr>
     <% end %>

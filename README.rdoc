@@ -1,28 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a web application for indexing employees, having internal social site, real time question and answers.
 
-Things you may want to cover:
+###Important:
 
-* Ruby version
+* Ruby version: 2.3.0
 
-* System dependencies
+*Rails version: 4.2.6
 
-* Configuration
+*MongoDB version: 5.1.0
 
-* Database creation
+*Server Requires PaperClip, imagemagik and ghost script
 
-* Database initialization
+##ToDo
+*Make welcome page
 
-* How to run the test suite
+*Style This project
 
-* Services (job queues, cache servers, search engines, etc.)
+*Make dayily/weekly/monthly planners
 
-* Deployment instructions
+*Make chat board
 
-* ...
+*build profile Gallery
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+*build profile wall

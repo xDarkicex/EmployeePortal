@@ -1,6 +1,7 @@
 class TechnicalassistancesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_technicalassistance, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin, only: [:destroy, :edit, :update]
 
   # GET /technicalassistances
   # GET /technicalassistances.json
@@ -26,7 +27,10 @@ class TechnicalassistancesController < ApplicationController
   # POST /technicalassistances.json
   def create
     @technicalassistance = Technicalassistance.new(technicalassistance_params)
-
+    @technicalassistance.user = current_user
+    # if(params[:parent_id])
+    #   @technicalassistance.parent_id
+    # end
     respond_to do |format|
       if @technicalassistance.save
         format.html { redirect_to @technicalassistance, notice: 'Technicalassistance was successfully created.' }
@@ -70,6 +74,6 @@ class TechnicalassistancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def technicalassistance_params
-      params.require(:technicalassistance).permit(:title, :device, :descripton, :time)
+      params.require(:technicalassistance).permit(:title, :device, :body, :parent_id)
     end
 end

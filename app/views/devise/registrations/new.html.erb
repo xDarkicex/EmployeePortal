@@ -22,7 +22,11 @@
 
   <div class="field">
     <%= f.label :gender %>
-    <%= f.select( :gender, [['Male', 'Male'], ['Female', 'Female']], {}) %>
+    <%= f.select( :gender, [['Male', 'Male'], ['Female', 'Female'], ['Custom', 'Custom']], {}) %>
+  </div>
+  <div class="field">
+    <%= f.label :sexaulality %>
+    <%= f.select( :sexaulality, [['Gay', 'Gay'], ['Straight', 'Straight'], ['Bisexual', 'Bisexual'], ['Asexual', 'Asexual'], ['Two-Spirit', 'Two-Spirit'], ['', 'Custom'], ['Custom', 'Custom']], {}) %>
   </div>
   <div class="field">
     <%= f.label :bio %><br>

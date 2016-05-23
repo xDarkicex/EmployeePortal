@@ -15,3 +15,12 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+*[data-href] {
+  cursor:pointer;
+  &:hover{
+  background-color: rgb(14, 183, 255)!important;
+}
+}
+.nav{
+  padding-left: 15px!important;
+}

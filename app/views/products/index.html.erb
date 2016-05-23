@@ -10,13 +10,15 @@
       <th>Price</th>
       <th>Descripton</th>
       <th>Dosage</th>
+      <% if admin? %>
       <th colspan="3"></th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
-      <tr>
+      <tr data-href="<%= product_url(product) %>">
         <td><%=image_tag product.productphoto.url(:thumb), class:"indexedproduct  img-thumbnail" %></td>
         <td><%= product.name %></td>
         <td>8oz: $<%= product.price8oz %>
@@ -28,13 +30,16 @@
         <td><%= product.descripton %></td>
         <td><%= product.dosage %></td>
         <td><%= link_to 'Show', product, class:"btn btn-default" %></td>
+        <% if admin? %>
         <td><%= link_to 'Edit', edit_product_path(product), class:"btn btn-default" %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if admin? %>
 <%= link_to 'New Product', new_product_path, class:"btn btn-default" %>
+<% end %>

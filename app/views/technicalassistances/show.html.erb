@@ -1,24 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @technicalassistance.title %>
-</p>
-
-<p>
-  <strong>Device:</strong>
-  <%= @technicalassistance.device %>
-</p>
-
-<p>
-  <strong>Descripton:</strong>
-  <%= @technicalassistance.descripton %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @technicalassistance.created_at %>
-</p>
-
-<%= link_to 'Edit', edit_technicalassistance_path(@technicalassistance) %> |
+<%= render 'parent', post: @technicalassistance %>
+<%= link_to 'Edit', edit_technicalassistance_path(@technicalassistance) %>
+<%= link_to "Reply", new_technicalassistance_path(parent_id:@technicalassistance.id) %>
 <%= link_to 'Back', technicalassistances_path %>

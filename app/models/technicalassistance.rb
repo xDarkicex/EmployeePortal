@@ -1,8 +1,11 @@
 class Technicalassistance
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :title, type: String
   field :device, type: String
-  field :descripton, type: String
-
+  field :title, type: String
+  field :body, type: String
+  field :parent_id, type: String
+  # has_many :posts
+  # belongs_to :post
+  belongs_to :user
 end

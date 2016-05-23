@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
+<h2><strong>Employee Profile</strong></h2><% if admin? %>
+<p class="adminbadge"><strong>ADMIN</strong></p>
+<% end %>
+
 
 <p>
-  <strong>Photo</strong>
+
   <%= image_tag @employee.avatar.url(:medium), class: "img-thumbnail" %>
 </p>
 
@@ -10,7 +14,7 @@
   <%= @employee.name %>
 </p>
 <p>
-  <strong>Jobtitle:</strong>
+  <strong>Job Title:</strong>
   <%= @employee.jobtitle %>
 </p>
 
@@ -29,6 +33,11 @@
 </p>
 
 <p>
+  <strong>Sexuality:</strong>
+  <%= @employee.sexuality %>
+</p>
+
+<p>
   <strong>Email:</strong>
   <%= @employee.email %>
 </p>
@@ -37,6 +46,8 @@
   <strong>Phone:</strong>
   <%= @employee.phone %>
 </p>
-
+<% if current_user.id == @employee.id %>
 <%= link_to 'Edit', edit_employee_path(@employee), class:"btn btn-default" %> |
+
+<% end %>
 <%= link_to 'Back', employees_path, class:"btn btn-default" %>

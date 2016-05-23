@@ -1,3 +1,5 @@
+
+<%= render 'parent', post: Technicalassistance.find(params[:parent_id]) if params[:parent_id] %>
 <%= form_for(@technicalassistance) do |f| %>
   <% if @technicalassistance.errors.any? %>
     <div id="error_explanation">
@@ -10,9 +12,9 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.text_field :parent_id, value: params[:parent_id], style:'display:none;' %>
   <div class="field">
-    <%= f.label "Employee Name"%><br>
+    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
@@ -21,10 +23,10 @@
     <%= f.text_field :device, placeholder: "Please List Device model, be specific"%>
   </div>
   <div class="field">
-    <%= f.label :descripton %><br>
-    <%= f.text_area :descripton,  placeholder: "Please provide descripton of your error/s here....", rows: 5, cols: 100%>
+    <%= f.label :body %><br>
+    <%= f.text_area :body,  placeholder: "Please provide descripton of your error/s here....", rows: 5, cols: 100%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Help Ticket"%>
   </div>
 <% end %>

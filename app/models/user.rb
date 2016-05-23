@@ -8,12 +8,12 @@ class User
   field :jobtitle, type: String
   field :skills, type: String
   field :gender, type: String
+  field :sexuality, type: String
   field :email, type: String
   field :phone, type: String
   field :bio, type: String
   field :admin, type: Boolean, default: false
-
-  # has_many :posts, dependent: :destroy
+  has_many :post
 
   validates_presence_of :name, :message => "Can't be blank"
   validates :name, length:{maximum: 15}
@@ -44,7 +44,7 @@ class User
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
-
+  before_save { |user| user.admin = true if User.count == 0 }
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time

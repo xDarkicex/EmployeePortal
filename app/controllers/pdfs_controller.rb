@@ -1,7 +1,7 @@
 class PdfsController < ApplicationController
-  before_filter :authenticate_user!  
+  before_filter :authenticate_user!
   before_action :set_pdf, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin, only: [:new, :create, :destroy, :edit, :update] 
 
   def download_file
  redirect_to paperclip_attachment.file.url

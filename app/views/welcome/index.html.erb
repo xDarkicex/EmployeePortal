@@ -1,7 +1,7 @@
 <div>
 
 <% if user_signed_in? %>
-  Welcome <%=  current_user.email %>
+  Welcome <% if user_signed_in? && current_user.admin %><strong>ADMIN</strong><% end %> <%=  current_user.email %>
   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% else %>
   <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %>
@@ -10,5 +10,6 @@
     <strong>Current Employees:</strong><%= link_to "Sign in", new_user_session_path%><br>
     <strong>New Employees:</strong><%= link_to "Sign up", new_user_registration_path %>
 <% end %>
+
 
 </div>

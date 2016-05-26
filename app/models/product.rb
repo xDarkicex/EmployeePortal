@@ -14,7 +14,7 @@ class Product
   field :dosage, type: String
 
   validates_presence_of :name, :message => "Can't be blank"
-  validates :name, length:{maximum: 15}
+  validates :name, length:{maximum: 25}
   validates :name, uniqueness: true
   validates_presence_of :descripton, :message => "Can't be blank"
   validates :descripton, length:{minimum: 15}

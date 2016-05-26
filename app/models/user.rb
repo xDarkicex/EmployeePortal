@@ -14,6 +14,7 @@ class User
   field :bio, type: String
   field :admin, type: Boolean, default: false
   has_many :posts
+  has_many :welcomes
 
 
   validates_presence_of :name, :message => "Can't be blank"

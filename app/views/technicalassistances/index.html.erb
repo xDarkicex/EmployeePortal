@@ -18,6 +18,7 @@
   <tbody>
     <% @technicalassistances.each do |ta| %>
       <tr data-href="<%= technicalassistance_url(ta) %>">
+        <td><% if ta.user %><%= image_tag ta.user.avatar.url(:thumb) %><% end %></td>
         <td><%= ta.title %></td>
         <td><%= ta.device %></td>
         <td><%= ta.body %></td>

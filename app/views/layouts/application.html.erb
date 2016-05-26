@@ -8,8 +8,6 @@
 </head>
 <body>
 <div class="container-fluid">
-
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -27,7 +25,7 @@
           <% if user_signed_in? && current_user.admin %><a href="<%= employee_path(current_user) %>">ADMIN</a><% end %></li><li> <%= link_to current_user.name, employee_path(current_user) %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
-        <li>  <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %></li>
+        <li>  <%= link_to "Sign in", new_user_session_path%></li><li><%= link_to "Sign up", new_user_registration_path %></li>
           <% end %>
     </ul>
 

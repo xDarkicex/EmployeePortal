@@ -1,5 +1,5 @@
 
-<%= render 'parent', post: Technicalassistance.find(params[:parent_id]) if params[:parent_id] %>
+<% if params[:parent_id] %><%= render 'parent', post: Technicalassistance.find(params[:parent_id]) %><% end %>
 
 <%= form_for(@technicalassistance) do |f| %>
   <% if @technicalassistance.errors.any? %>
@@ -13,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-  <%= f.text_field :parent_id, value: params[:parent_id], style:'display:none;' %>
+<% if params[:parent_id] %><%= f.text_field :parent_id, value: params[:parent_id], style:'display:none;' %><% end %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

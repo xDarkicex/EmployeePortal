@@ -52,10 +52,11 @@
   </div>
 <% if admin? %>
     <div class="field">
-
       <%= f.label :admin %>
       <%= f.check_box :admin %>
   </div>
+  <div class="field">
+      <%= link_to 'Destroy', employee_path(@employee), method: :delete, data: { confirm: 'Are you sure, you want to remove employee record?' }, class:"btn btn-danger bottom-margin5x color-white" %>
 <% end %>
   <div class="actions">
     <%= f.submit class:"btn btn-default" %>

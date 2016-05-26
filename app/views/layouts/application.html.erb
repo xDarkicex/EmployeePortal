@@ -8,14 +8,8 @@
 </head>
 <body>
 <div class="container-fluid">
-  <% if controller.controller_name != 'welcome' %>
-  <% if user_signed_in? %>
-    Welcome <% if user_signed_in? && current_user.admin %><strong>ADMIN</strong><% end %> <%=  current_user.email %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %>
-    <% end %>
-  <% end %>
+
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -28,8 +22,13 @@
       <li><%= link_to "Technical Support", technicalassistances_path %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li>
-</li>
+      <li>  <% if user_signed_in? %>
+
+          <% if user_signed_in? && current_user.admin %><a href="<%= employee_path(current_user) %>">ADMIN</a><% end %></li><li> <%= link_to current_user.name, employee_path(current_user) %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+        <li>  <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %></li>
+          <% end %>
     </ul>
 
     </div>

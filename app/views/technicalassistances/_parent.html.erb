@@ -1,9 +1,10 @@
 
-<%= render 'parent', post: Technicalassistance.find(post.parent_id) if post.parent_id %>
-
+<%= render @parent, post: Technicalassistance.find(post.parent_id) if params[:parent_id] %>
 <div>
   <% if post.user %>
+  <%= image_tag post.user.avatar, class: "img-circle postavatar" %> By 
     <%= post.user.name %>
+
   <% end %>
   <p>
     <strong>Title:</strong>

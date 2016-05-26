@@ -1,23 +1,26 @@
 <p id="notice"><%= notice %></p>
-<h2><strong>Employee Profile</strong></h2><% if admin? %>
-<p class="adminbadge"><strong>ADMIN</strong></p>
+<div class="titleContainer">
+<h2><strong>Employee Profile</strong></h2><% if admin? %><span class="adminbadge"><strong class="btn btn-success">ADMIN</strong></span>
+</div>
 <% end %>
 
 
-<p>
 
+<div class="avatar">
   <%= image_tag @employee.avatar.url(:medium), class: "img-thumbnail" %>
-</p>
+</div>
 
-<p>
+<div class="infoContainer">
+  <div class="rows">
+    <div class="column">
   <strong>Name:</strong>
   <%= @employee.name %>
-</p>
-<p>
+    </div>
+    <div class="column">
   <strong>Job Title:</strong>
   <%= @employee.jobtitle %>
-</p>
-
+    </div>
+  </div>
 <p>
   <strong>Skills:</strong>
   <%= @employee.skills %>
@@ -50,4 +53,6 @@
 <%= link_to 'Edit', edit_employee_path(@employee), class:"btn btn-default" %> |
 
 <% end %>
+
 <%= link_to 'Back', employees_path, class:"btn btn-default" %>
+</div>

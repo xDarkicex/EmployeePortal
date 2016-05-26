@@ -13,10 +13,11 @@ class User
   field :phone, type: String
   field :bio, type: String
   field :admin, type: Boolean, default: false
-  has_many :post
+  has_many :posts
+
 
   validates_presence_of :name, :message => "Can't be blank"
-  validates :name, length:{maximum: 15}
+  validates :name, length:{maximum: 35}
   validates_presence_of :email, :message => "Can't be blank"
   validates :email, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }

@@ -24,3 +24,21 @@
 .nav{
   padding-left: 15px!important;
 }
+img.img-thumbnail{
+  border-radius: 50%;
+}
+.titleContainer{
+  display: flex;
+  line-height: 72px;
+  strong{
+    padding-right: 10px;
+  }
+}
+
+.bottom-margin5x{
+  margin-bottom: 10px;
+
+}
+.color-white{
+  color: white!important;
+}

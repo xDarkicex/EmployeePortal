@@ -1,8 +1,8 @@
 <div>
 
 <% if user_signed_in? %>
-  Welcome <% if user_signed_in? && current_user.admin %><strong>ADMIN</strong><% end %> <%=  current_user.email %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+Welcome <%= current_user.name %>
+
 <% else %>
   <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %>
   <h1>Unauthorized Entry</h1>
@@ -13,3 +13,17 @@
 
 
 </div>
+<% if user_signed_in? && current_user.admin %>
+<div class="fluid-container">
+  <h2>Bata rev. 0.0.2</h2>
+  <div class="column">
+    <div class="row">
+      <div class="employee-container">
+        <%= render partial: 'employees/test' %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<% end %>

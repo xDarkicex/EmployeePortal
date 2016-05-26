@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   protected
   def configure_permitted_parameters
     [:account_update, :sign_up].each do |action|
-      devise_parameter_sanitizer.for(action) << [:avatar, :bio, :gender, :sexuality, :skills, :name, :jobtitle, :phone, :portfolio, :email]
+      devise_parameter_sanitizer.for(action) << [:avatar, :bio, :gender, :sexuality, :skills, :name, :jobtitle, :phone, :portfolio, :email, :user ]
     end
   end
 end

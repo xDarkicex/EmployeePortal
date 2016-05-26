@@ -1,5 +1,6 @@
 
 <%= render 'parent', post: Technicalassistance.find(params[:parent_id]) if params[:parent_id] %>
+
 <%= form_for(@technicalassistance) do |f| %>
   <% if @technicalassistance.errors.any? %>
     <div id="error_explanation">

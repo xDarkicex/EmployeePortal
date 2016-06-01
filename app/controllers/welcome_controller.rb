@@ -61,7 +61,7 @@ protected
     @employee = User.find(params[:id])
   end
   def employee_params
-    params.require(:user).permit(:avatar, :bio, :gender, :sexuality, :skills, :name, :jobtitle, :phone, :portfolio, :email, :admin)
+    params.require(:user).permit(:avatar, :bio, :gender, :sexuality, :skills, :name, :jobtitle, :phone, :portfolio, :email, :admin, :employeepassword)
   end
   def set_welcome
     @welcome = Welcome.find(params[:id])

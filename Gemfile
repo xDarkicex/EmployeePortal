@@ -15,6 +15,7 @@ gem 'mongoid'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "money-rails"
 gem 'aws-sdk'
+gem 'ckeditor_rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'

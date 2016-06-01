@@ -29,15 +29,19 @@ img.img-thumbnail{
 }
 .indexedemployee{
     border-radius: 50%;
-    width:65px;
-    height:65px;
 }
 .showemployee{
-    border-radius: 50%;
-    width:70px;
-    height:70px;
+    width:100px;
+    height:100px;
 }
-
+.thumbemployee{
+  width:45px;
+  height:45px;
+}
+.navbar-right{
+  display: flex;
+  align-items: center;
+}
 .indexedproduct{
   width: 90px;
   height: 120px;
@@ -64,4 +68,7 @@ img.img-thumbnail{
 }
 td {
     vertical-align : middle!important;
+}
+div.field{
+  width: 50%
 }

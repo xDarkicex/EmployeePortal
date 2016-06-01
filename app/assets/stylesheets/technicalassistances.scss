@@ -8,3 +8,13 @@
   width: 50px;
   height: 50px;
 }
+body > div > div.posting{
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  border-left: 2px solid;
+  background: rgba(0,0,0,0.03);
+}
+body > div > div:nth-child(odd).posting{
+  border-left: 3px solid;
+}

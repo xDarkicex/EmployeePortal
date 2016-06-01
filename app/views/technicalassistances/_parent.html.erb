@@ -1,7 +1,7 @@
 
 
 <%= render 'parent', post: Technicalassistance.find(post.parent_id) if post.parent_id %>
-<div>
+<div class="posting">
   <% if post.user %>
   <%= image_tag post.user.avatar, class: "img-circle postavatar" %> By
     <%= post.user.name %> <% if post.user.admin %><span class="adminbadge"><strong class="btn btn-success">ADMIN</strong></span><% end %>

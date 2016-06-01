@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <div class="profileContainer">
 <div class="titleContainer">
-<h2><strong>Employee Profile</strong></h2><% if @employee.admin %><span class="adminbadge"><strong class="btn btn-success">ADMIN</strong></span>
+<h2><strong><%= @employee.name %></strong></h2><% if @employee.admin %><span class="adminbadge"><strong class="btn btn-success">ADMIN</strong></span>
 
 <% end %>
 </div>
@@ -11,26 +11,33 @@
     <div>
 
 <div class="avatar">
+
   <%= image_tag @employee.avatar.url(:medium), class: "img-thumbnail showemployee" %>
 </div>
 
 <div class="infoContainer">
   <div class="rows">
     <div class="column">
-  <strong>Name:</strong>
-  <%= @employee.name %>
+
+
     </div>
     <div class="column">
   <strong>Job Title:</strong>
   <%= @employee.jobtitle %>
     </div>
+    <% if @employee.salesrep == true %>
+    <div class="region">
+      <strong>Sales Region</strong>
+      <%= @employee.region %>
+    </div>
+    <% end %>
   </div>
 <p>
   <strong>Skills:</strong>
   <%= @employee.skills %>
 </p>
 <p>
-  <strong>Bio:</strong>
+  <strong>About Me</strong>
   <%= @employee.bio %>
 </p>
 
@@ -43,20 +50,179 @@
   <strong>Sexuality:</strong>
   <%= @employee.sexuality %>
 </p>
-
+<p>
+<strong>Phone:</strong>
+<%= @employee.phone %>
+</p>
 <p>
   <strong>Email:</strong>
-  <%= @employee.email %>
+  <%=mail_to @employee.email,  @employee.name %>
 </p>
+<% if current_user == @employee || admin? %>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</p>
-<% if current_user.id == @employee.id %>
+  <div class="emailsettingscontainer">
+    <div class="emailheader">
+      <h3>Email Settings</h3>
+      <p>Below are instruction on how to setup your easycarewater email account</p>
+
+
+    </div>
+    <div class="emailoptions">
+    <ul>
+      <li><div type="button" class="btn btn-primary emailbuttons emailbuttoniphone">iPhone</div></li>
+      <li><div type="button" class="btn btn-primary emailbuttons emailbuttonandroid">Android</div></li>
+      <li><div type="button" class="btn btn-primary emailbuttons emailbuttoncomputer">Computer</div></li>
+    </ul>
+  </div>
+    <div class="emailsettings">
+    <div class="iphone">
+      <section>
+        <div class="field">
+          <h3>iPhone Instructions</h3>
+        </div>
+        <div class="field">
+          <strong>Email:</strong>
+          <%= @employee.email %>
+        </div>
+        <div class="field">
+          <strong>Username:</strong>
+          <%= @employee.username %>
+        </div>
+        <div class="field passwordfield">
+          <strong>Password For Employee Email:</strong>
+          <span class="password"><%= @employee.employeepassword %></span>
+        </div>
+        <div class="field">
+          <strong>Incoming Server:</strong>
+          <%= @employee.incomingserver %>
+        </div>
+
+        <div class="field">
+          <strong>Incoming IMAP Port:</strong>
+          <%= @employee.incomingport %>
+        </div>
+        <div class="field">
+          <strong>Outgoing Server:</strong>
+            <%= @employee.outgoingserver %>
+        </div>
+        <div class="field">
+          <strong>Outgoing SMTP Port:</strong>
+          <%= @employee.smtpport %>
+        </div>
+        <div>
+        <h3>Video Instructions</h3>
+        <p>How to add custom work email to Mail on iphone devices. </p>
+      </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/688VzjhGEjo" frameborder="0" allowfullscreen></iframe>
+      </section>
+    </div>
+    <div class="android">
+      <section>
+        <div class="field">
+          <h3>Android Instructions</h3>
+        </div>
+        <div class="field">
+          <strong>Email:</strong>
+          <%= @employee.email %>
+        </div>
+        <div class="field">
+          <strong>Username:</strong>
+          <%= @employee.username %>
+        </div>
+        <div class="field passwordfield">
+          <strong>Password For Employee Email:</strong>
+
+        </div>
+        <div class="field">
+          <strong>Incoming Server:</strong>
+          <%= @employee.incomingserver %>
+        </div>
+
+        <div class="field">
+          <strong>Incoming IMAP Port:</strong>
+          <%= @employee.incomingport %>
+        </div>
+        <div class="field">
+          <strong>Outgoing Server:</strong>
+          <%= @employee.outgoingserver %>
+        </div>
+        <div class="field">
+          <strong>Outgoing SMTP Port:</strong>
+          <%= @employee.smtpport %>
+        </div>
+        <div>
+        <h3>Video Instructions</h3>
+        <p>How to add custom work email to Android email serivce.</p>
+      </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/nZ-ra9pOL5U" frameborder="0" allowfullscreen></iframe>
+      </section>
+    </div>
+    <div class="computer">
+      <section>
+        <div class="field">
+          <h3>Computer Instructions</h3>
+        </div>
+        <div class="field">
+          <strong>Email:</strong>
+          <%= @employee.email %>
+        </div>
+        <div class="field">
+          <strong>Username:</strong>
+          <%= @employee.username %>
+        </div>
+        <div class="field passwordfield">
+          <strong>Password For Employee Email:</strong>
+
+          <button class="hidepassword btn btn-default">Hide</button>
+          <button class="showpassword btn btn-default">Show</button>
+
+        </div>
+        <div class="field">
+          <strong>Incoming Server:</strong>
+          <%= @employee.incomingserver %>
+        </div>
+
+        <div class="field">
+          <strong>Incoming IMAP Port:</strong>
+          <%= @employee.incomingport %>
+        </div>
+        <div class="field">
+          <strong>Outgoing Server:</strong>
+            <%= @employee.outgoingserver %>
+        </div>
+        <div class="field">
+          <strong>Outgoing SMTP Port:</strong>
+          <%= @employee.smtpport %>
+        </div>
+        <div>
+          <h3>Video Instructions</h3>
+          <p>How to add custom work email to outlook on windows </p>
+        </div>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/0zOPbN81PUo" frameborder="0" allowfullscreen></iframe>
+        <div class="field">
+          <h3>Free Alternative Email Client</h3>
+          <p>Thunderbird is a very capable desktop replacement for Microsoft Outlook. Thunderbird is a open source email client powered by the mozilla corporation.
+            This email client is a highly recommended replacement for Microsoft, if you are unwilling or unable to purchase a copy of Microsoft Outlook.</p>
+            <p><a href="https://www.mozilla.org/en-US/thunderbird/">Thunder Bird</a></p>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+<div class="ta">
+  <h3>Open Technical Assistance Tickets</h3>
+  <%= @employee %>
+
+</div>
+<% if current_user.id == @employee.id || admin? %>
 <%= link_to 'Edit', edit_employee_path(@employee), class:"btn btn-default" %> |
 
 <% end %>
+
 
 <%= link_to 'Back', employees_path, class:"btn btn-default" %>
 </div>

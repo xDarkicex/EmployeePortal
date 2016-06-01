@@ -2,14 +2,22 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Paperclip
-  has_mongoid_attached_file :avatar, :styles => { :medium =>"500x500>", :thumb => "100x100>" }
+  has_mongoid_attached_file :avatar, :styles => { :medium =>"500x500#", :thumb => "100x100#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   field :name, type: String
   field :jobtitle, type: String
+  field :region, type: String
+  field :salesrep, type: Boolean, default: false
   field :skills, type: String
   field :gender, type: String
   field :sexuality, type: String
   field :email, type: String
+  field :employeepassword, type: String
+  field :username, type: String
+  field :incomingserver, type: String
+  field :incomingport, type: String
+  field :outgoingserver, type: String
+  field :smtpport, type: String
   field :phone, type: String
   field :bio, type: String
   field :admin, type: Boolean, default: false

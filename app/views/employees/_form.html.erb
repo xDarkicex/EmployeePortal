@@ -1,7 +1,7 @@
 <%= form_for(@employee, html:{ :multipart => true }, url: url_for(controller: 'employees', action: 'show')) do |f| %>
 
   <% if @employee.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
       <ul>
@@ -25,27 +25,65 @@
     <%= f.label :jobtitle %><br>
     <%= f.text_field :jobtitle %>
   </div>
+
+  <div class="field">
+    <%= f.label :salesrep %>
+    <%= f.check_box :salesrep %>
+  </div>
+    <% if @employee.salesrep == true || admin? %>
+  <div class="field">
+    <%= f.label :region %><br>
+    <%= f.select( :region, [['North California','North California'], ['Central California','Central California'], ['South California','South California'], ['Bay Area', 'Bay Area'], ['Midwest','Midwest'], ['Texas','Texas'], ['Arizona','Arizona'], ['Florida', 'Florida'], ['East Coast', 'East Coast']], {}) %>
+  </div>
+    <% end %>
   <div class="field">
     <%= f.label :skills %><br>
     <%= f.text_field :skills %>
   </div>
-
   <div class="field">
     <%= f.label :gender %>
     <%= f.select( :gender, [['Male', 'Male'], ['Female', 'Female'], ['Custom', 'Custom']], {}) %>
   </div>
   <div class="field">
     <%= f.label :sexuality %>
-    <%= f.select( :sexuality, [['Gay', 'Gay'], ['Straight', 'Straight'], ['Bisexual', 'Bisexual'], ['Asexual', 'Asexual'], ['Two-Spirit', 'Two-Spirit'], ['Transexual', 'Transexual'], ['Custom', 'Custom']], {}) %>
+    <%= f.select( :sexuality, [['Straight', 'Straight'], ['Gay', 'Gay'], ['Bisexual', 'Bisexual'], ['Asexual', 'Asexual'], ['Transexual', 'Transexual'], ['Custom', 'Custom']], {}) %>
   </div>
 <div class="field">
-  <%= f.label :bio %><br>
-  <%= f.text_area :bio, placeholder: "Your Text here....", rows: 5, cols: 100 %>
+  <%= f.label "About Me" %><br>
+  <%= f.text_area :bio, placeholder: "Your Text here....", :class => 'ckeditor' %>
 </div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <% if admin? %>
+
+  <div class="field">
+    <%= f.label "Username" %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label "Password For Employee Email" %><br>
+    <%= f.text_field :employeepassword %>
+  </div>
+  <div class="field">
+    <%= f.label "Incoming Server" %><br>
+    <%= f.text_field :incomingserver %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Incoming IMAP Port" %><br>
+    <%= f.text_field :incomingport %>
+  </div>
+  <div class="field">
+    <%= f.label "Outgoing Server" %><br>
+    <%= f.text_field :outgoingserver %>
+  </div>
+  <div class="field">
+    <%= f.label "Outgoing SMTP Port" %><br>
+    <%= f.text_field :smtpport %>
+  </div>
+  <% end %>
   <div class="field">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>

@@ -12,3 +12,42 @@ body > div > table > tbody > tr > td > img{
   height: 50px;
 
 }
+.emailsettingscontainer{
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 50%;
+  .emailoptions{
+
+    ul{
+      margin-left: -40px;
+      display: flex;
+      list-style-type: none;
+            .emailbuttons{
+              border-radius: 0px;
+              width: 200px;
+              margin-bottom: -10px;
+            }
+    }
+  }
+.emailsettings{
+
+    .android{
+
+      flex: 1;
+
+    }
+    .iphone{
+
+      flex: 1;
+
+    }
+}
+}
+.os{
+  display: none;
+}
+.password{
+  padding-right: 10px;
+}

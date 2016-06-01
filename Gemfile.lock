@@ -54,6 +54,8 @@ GEM
     bson (4.1.1)
     builder (3.2.2)
     byebug (9.0.3)
+    ckeditor_rails (4.5.3)
+      railties (>= 3.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -209,6 +211,7 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass
   byebug
+  ckeditor_rails
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)

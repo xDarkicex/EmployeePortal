@@ -13,7 +13,9 @@
       </ul>
     </div>
   <% end %>
-<% if params[:parent_id] %><%= f.text_field :parent_id, value: params[:parent_id], style:'display:none;' %><% end %>
+<% if params[:parent_id] %>
+  <%= f.text_field :parent_id, value: params[:parent_id], style:'display:none;' %>
+<% else %>
   <div class="field">
     <%= f.label 'Request Title' %><br />
     <%= f.text_field :title %>
@@ -22,11 +24,12 @@
     <%= f.label :device %><br>
     <%= f.text_field :device, placeholder: "Please List Device model, be specific" %>
   </div>
+<% end %>
   <div class="field">
-    <%= f.label 'Description of error' %><br>
-    <%= f.text_area :body,  placeholder: "Please provide descripton of your error/s here....", :class => 'ckeditor' %>
+    <%= f.label ((!params[:parent_id])? 'Description of error' : 'Reply')%><br>
+    <%= f.text_area :body, :class => 'ckeditor' %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit Help Ticket" %>
+    <%= f.submit ((!params[:parent_id])? 'Submit Help Ticket' : 'Submit Reply')%>
   </div>
 <% end %>

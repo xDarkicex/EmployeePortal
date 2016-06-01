@@ -16,12 +16,12 @@
   </thead>
 
   <tbody>
-    <% @technicalassistances.each do |ta| %>
+    <% @technicalassistances.where(parent_id: nil).each do |ta| %>
       <tr data-href="<%= technicalassistance_url(ta) %>">
         <td><% if ta.user %><%= image_tag ta.user.avatar.url(:thumb) %><% end %></td>
         <td><%= ta.title %></td>
         <td><%= ta.device %></td>
-        <td><%= ta.body %></td>
+        <td><%= sanitize(ta.body.strip.truncate 20) %></td>
         <td> <%= ta.created_at.strftime("%b %d %Y") %> @ <%= ta.created_at.strftime("%H:%M") %></td>
           <% if admin? %>
         <td><%= link_to 'Show', ta, class:"btn btn-default" %></td>

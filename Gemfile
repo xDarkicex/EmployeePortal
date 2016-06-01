@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mongoid'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'mongoid_rails_migrations'
 gem "money-rails"
 gem 'aws-sdk'
 gem 'ckeditor_rails'

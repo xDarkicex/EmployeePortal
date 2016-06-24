@@ -18,46 +18,43 @@
 <div class="infoContainer">
   <div class="rows">
     <div class="column">
-
-
-    </div>
-    <div class="column">
   <strong>Job Title:</strong>
   <%= @employee.jobtitle %>
-    </div>
+
     <% if @employee.salesrep == true %>
     <div class="region">
       <strong>Sales Region</strong>
       <%= @employee.region %>
     </div>
     <% end %>
+    <p>
+      <strong>Skills:</strong>
+      <%= @employee.skills %>
+    </p>
+    <p>
+      <strong>About Me:</strong>
+      <%= @employee.bio %>
+    </p>
+
+    <p>
+      <strong>Gender:</strong>
+      <%= @employee.gender %>
+    </p>
+
+    <p>
+      <strong>Sexuality:</strong>
+      <%= @employee.sexuality %>
+    </p>
+    <p>
+    <strong>Phone:</strong>
+    <%= @employee.phone %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%=mail_to @employee.email,  @employee.name %>
+    </p>
   </div>
-<p>
-  <strong>Skills:</strong>
-  <%= @employee.skills %>
-</p>
-<p>
-  <strong>About Me</strong>
-  <%= @employee.bio %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @employee.gender %>
-</p>
-
-<p>
-  <strong>Sexuality:</strong>
-  <%= @employee.sexuality %>
-</p>
-<p>
-<strong>Phone:</strong>
-<%= @employee.phone %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%=mail_to @employee.email,  @employee.name %>
-</p>
+</div>
 <% if current_user == @employee || admin? %>
 
   <div class="emailsettingscontainer">

@@ -14,18 +14,21 @@ Welcome <%= current_user.name %>
 
 </div>
 <% if user_signed_in? && current_user.admin %>
-<div class="fluid-container">
-
-  <div class="column">
-    <div class="row">
+  <div>
+    <div>
       <div class="employee-container">
 
 
         <%= render partial: 'employees/test' %>
       </div>
-    </div>
+
 
   </div>
-
+</div>
+<% end %>
+<% if user_signed_in? %>
+<div class="Pinned">
+  <h2>Pinned PDF's</h2>
+  <%= render partial: 'pdfs/pinned' %>
 </div>
 <% end %>

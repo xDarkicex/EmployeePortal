@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Help Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Device</th>
+      <th>Title</th>
+      <th>Comments</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @help_tickets.each do |help_ticket| %>
+      <tr>
+        <td><%= help_ticket.user.name %></td>
+        <td><%= help_ticket.device %></td>
+        <td><%= help_ticket.title %></td>
+        <td><%= help_ticket.body %></td>
+        <td><%= link_to 'Show', help_ticket %></td>
+        <td><%= link_to 'Edit', edit_help_ticket_path(help_ticket) %></td>
+        <td><%= link_to 'Destroy', help_ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Help ticket', new_help_ticket_path %>

@@ -1,0 +1,28 @@
+<%= form_for(@help_ticket) do |f| %>
+  <% if @help_ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@help_ticket.errors.count, "error") %> prohibited this help_ticket from being saved:</h2>
+
+      <ul>
+      <% @help_ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :device %><br>
+    <%= f.text_field :device %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

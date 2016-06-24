@@ -20,5 +20,5 @@ class Product
   validates :descripton, length:{minimum: 15}
 
   validates_presence_of :dosage, :message => "Can't be blank"
-
+  field :pinned, type: Boolean, default: false
 end

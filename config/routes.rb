@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   resources :pdfs
   resources :products
   resources :employees
-
+  resources :help_tickets do
+    resources :comments
+  end
+  resources :comments
 end

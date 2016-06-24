@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @help_ticket.user.name %>
+</p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @help_ticket.device %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @help_ticket.title %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @help_ticket.comments.count %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @help_ticket.body %>
+</p>
+
+<%= link_to 'Edit', edit_help_ticket_path(@help_ticket) %> |
+<%= link_to 'Back', help_tickets_path %>

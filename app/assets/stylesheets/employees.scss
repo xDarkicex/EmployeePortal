@@ -17,7 +17,7 @@ body > div > table > tbody > tr > td > img{
   flex-direction: column;
   border: 3px solid rgba(0,0,0,0.1);
   padding: 20px;
-  max-width: 50%;
+  max-width: 75%;
   .emailoptions{
 
     ul{
@@ -26,7 +26,7 @@ body > div > table > tbody > tr > td > img{
       list-style-type: none;
             .emailbuttons{
               border-radius: 0px;
-              width: 200px;
+              width: 20vw;
               margin-bottom: -10px;
             }
     }
@@ -50,4 +50,9 @@ body > div > table > tbody > tr > td > img{
 }
 .password{
   padding-right: 10px;
+}
+div.infoContainer > div.rows > div{
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
 }

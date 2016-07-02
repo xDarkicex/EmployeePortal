@@ -8,6 +8,11 @@ class User
   field :jobtitle, type: String
   field :region, type: String
   field :salesrep, type: Boolean, default: false
+  field :shipping, type: Boolean, default: false
+  field :packaging, type: Boolean, default: false
+  field :officestaff, type: Boolean, default: false
+  field :watertreatment, type: Boolean, default: false
+  field :admin, type: Boolean, default: false
   field :skills, type: String
   field :gender, type: String
   field :sexuality, type: String
@@ -20,9 +25,10 @@ class User
   field :smtpport, type: String
   field :phone, type: String
   field :bio, type: String
-  field :admin, type: Boolean, default: false
+
   has_many :posts
   has_many :welcomes
+  has_many :todos
 
 
   validates_presence_of :name, :message => "Can't be blank"

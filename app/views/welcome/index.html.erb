@@ -16,10 +16,8 @@ Welcome <%= current_user.name %>
 <% if user_signed_in? && current_user.admin %>
   <div>
     <div>
-      <div class="employee-container">
-
-
-        <%= render partial: 'employees/test' %>
+      <div class="administrative">
+        <%= render partial: 'admin/administrativepanel' %>
       </div>
 
 

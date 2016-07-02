@@ -29,8 +29,16 @@
   <div class="field">
     <%= f.label :salesrep %>
     <%= f.check_box :salesrep %>
+    <%= f.label :shipping %>
+    <%= f.check_box :shipping %>
+    <%= f.label :packaging %>
+    <%= f.check_box :packaging %>
+    <%= f.label :officestaff %>
+    <%= f.check_box :officestaff %>
+    <%= f.label :watertreatment %>
+    <%= f.check_box :watertreatment %>
   </div>
-    <% if @employee.salesrep == true || admin? %>
+    <% if salesrep? || admin? %>
   <div class="field">
     <%= f.label :region %><br>
     <%= f.select( :region, [['North California','North California'], ['Central California','Central California'], ['South California','South California'], ['Bay Area', 'Bay Area'], ['Midwest','Midwest'], ['Texas','Texas'], ['Arizona','Arizona'], ['Florida', 'Florida'], ['East Coast', 'East Coast']], {}) %>

@@ -2,9 +2,7 @@
 <p id="notice"><%= notice %></p>
 <div class="profileContainer">
 <div class="titleContainer">
-<h2><strong><%= @employee.name %></strong></h2><% if @employee.admin %><span class="adminbadge"><strong class="btn btn-success">ADMIN</strong></span>
-
-<% end %>
+<h2><strong><%= @employee.name %></strong></h2><% if @employee.admin %><span class="adminbadge"><strong class="btn btn-success">ADMIN</strong></span><% end %><% if @employee.salesrep %><span class="adminbadge"><strong class="btn btn-success">Sales Rep</strong></span><% end %><% if @employee.shipping %><span class="adminbadge"><strong class="btn btn-success">Shipping</strong></span><% end %><% if @employee.packaging %><span class="adminbadge"><strong class="btn btn-success">Packaging</strong></span><% end %><% if @employee.officestaff %><span class="adminbadge"><strong class="btn btn-success">Office Staff</strong></span><% end %><% if @employee.watertreatment %><span class="adminbadge"><strong class="btn btn-success">Water Treatment</strong></span><% end %></h2>
 </div>
 
 <div>
@@ -33,7 +31,7 @@
     </p>
     <p>
       <strong>About Me:</strong>
-      <%= @employee.bio %>
+      <%= @employee.bio.html_safe %>
     </p>
 
     <p>

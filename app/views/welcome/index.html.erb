@@ -26,7 +26,7 @@ Welcome <%= current_user.name %>
 <% end %>
 <% if user_signed_in? %>
 <div class="Pinned">
-  <h2>Pinned PDF's</h2>
+  <h2>Favorited Documents</h2>
   <%= render partial: 'pdfs/pinned' %>
 </div>
 <% end %>

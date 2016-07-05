@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
     @products = Product.all
     @technicalassistances = Technicalassistance.all
     @welcomes = Welcome.all
+
   end
 
   def show

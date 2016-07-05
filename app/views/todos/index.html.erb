@@ -2,23 +2,15 @@
 
 <h2>Current Tasks</h2>
 <%= link_to 'New List Item', new_todo_path %>
-    <ol>
-    <% current_user.todos.each do |todo| %>
-
-        <li> <%= todo.note %>
-          <%= link_to 'Edit', edit_todo_path(todo) %>
-        </li>
-
-
-    <% end %>
-  </ol>
-
+<ol>
+  <% @todos.each do |todo| %>
+    <%= render 'todo', {todo:todo} %>
+  <% end %>
+</ol>
 <br>
 <h2>Finished Tasks</h2>
   <ol>
     <% @todones.each do |tdone| %>
-      <li><%= tdone.note %>
-          <%= link_to 'Delete', tdone, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
+      <%= render 'todo', {todo:tdone} %>
     <% end %>
   </ol>

@@ -1,5 +1,7 @@
 <h3>Current PDF Listing</h3>
+<% if admin? %>
 <%= link_to 'New Pdf', new_pdf_path,  class: "btn btn-default"  %>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,7 +15,7 @@
 
   <tbody>
     <% @pdfs.each do |pdf| %>
-        <tr data-href="#">
+        <tr data-href="<%= pdf_url(pdf) %>">
         <td><%= pdf.pdfname %> </td>
         <td><%= link_to "Download", pdf.document.url,  class: "btn btn-link" %></td>
         <% if admin? %>

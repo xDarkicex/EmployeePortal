@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :todos
+  resources :todos do
+    get :toggle_done, on: :member
+  end
   root 'welcome#index'
 
   devise_for :users

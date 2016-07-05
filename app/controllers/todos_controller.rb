@@ -1,14 +1,18 @@
 class TodosController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:show, :edit, :update, :destroy, :toggle_done]
 
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.where(done: false)
-    @todones = Todo.where(done: true)
+    @todos = current_user.todos.where(done: false)
+    @todones = current_user.todos.where(done: true)
   end
-
+  def toggle_done
+    @todo.done = !@todo.done
+    @todo.save
+    redirect_to todos_url
+  end
   # GET /todos/1
   # GET /todos/1.json
   def show

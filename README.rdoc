@@ -1,6 +1,6 @@
 == README
 
-This is a web application for indexing employees, having internal social site, real time question and answers.
+This is a web application for indexing employees, having internal social site, "real time question" and answers.
 
 ###Important:
 

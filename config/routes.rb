@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     get :toggle_done, on: :member
   end
   root 'welcome#index'
-
   devise_for :users
   resources :employees
   # delete 'employees/sign_out'

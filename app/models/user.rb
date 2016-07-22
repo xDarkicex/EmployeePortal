@@ -29,7 +29,8 @@ class User
   has_many :posts
   has_many :welcomes
   has_many :todos
-
+  has_many :messages
+  has_and_belongs_to_many :pdfs
 
   validates_presence_of :name, :message => "Can't be blank"
   validates :name, length:{maximum: 35}

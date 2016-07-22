@@ -13,9 +13,23 @@ This is a web application for indexing employees, having internal social site, "
 *Server Requires PaperClip, imagemagik and ghost script
 
 ##ToDo
-*Make welcome page
+*welcome page
+-welcome page is now split.
+ -Guest
+  -sign in only
+ -Employee
+  *needs messages
+  *Todos Pinned
+  *Board
+  -Pinned documents
+  *Pin help Tickets
+ -Admin
+  -product listing
+  -document listing
+  -employee listing
+  *submitted Todos
 
-*Style This project
+##Style This project
 
 *Make dayily/weekly/monthly planners
 

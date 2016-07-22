@@ -12,9 +12,11 @@
   <% end %>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%= f.text_area :body, :class => 'ckeditor' %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+  <%= f.hidden_field :help_ticket_id, value: params[:help_ticket_id] if params[:help_ticket_id] %>
+  <%= f.hidden_field :comment_id, value: params[:comment_id] if params[:comment_id] %>
 <% end %>

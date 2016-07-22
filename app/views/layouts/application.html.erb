@@ -7,34 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container-fluid">
-    <h2>Bata rev. 0.0.3</h2>
-<nav class="navbar navbar-default">
   <div class="container-fluid">
-
+    <h2>Bata rev. 0.0.3</h2>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
         <%= link_to "Home", root_path, class: "navbar-brand" %>
-    <ul class="nav navbar-nav">
-      <li><%= link_to "Employees", employees_path %></li>
-      <li><%= link_to "Products", products_path %></li>
-      <li><%= link_to "pdfs", pdfs_path %></li>
-      <li><%= link_to "Technical Support", technicalassistances_path %>
-    </ul>
-    <div class="rightnav">
-    <ul class="nav navbar-nav navbar-right">
-      <li>  <% if user_signed_in? %>
-
-          <% if user_signed_in? && current_user.admin %><a href="<%= employee_path(current_user) %>">ADMIN</a><% end %></li><li> <%= image_tag current_user.avatar.url(:medium), class: "img-thumbnail thumbemployee" %></li><li><%= link_to current_user.name, employee_path(current_user) %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-        <li>  <%= link_to "Sign in", new_user_session_path%></li><li><%= link_to "Sign up", new_user_registration_path %></li>
-          <% end %>
-    </ul>
-  </div>
-  </div>
-</nav>
-
-
-  <%= yield %>
-</div>
-</body>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Employees", employees_path %></li>
+          <li><%= link_to "Products", products_path %></li>
+          <li><%= link_to "pdfs", pdfs_path %></li>
+          <li><%= link_to "Technical Support", help_tickets_path %>
+        </ul>
+        <div class="rightnav">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <% if user_signed_in? %>
+                <% if admin? %>
+                  <a href="<%= employee_path(current_user) %>">ADMIN</a>
+                <% end %>
+                </li>
+                <li><%= image_tag current_user.avatar.url(:medium), class: "img-thumbnail thumbemployee" %></li>
+                <li><%= link_to current_user.name, employee_path(current_user) %></li>
+                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign in", new_user_session_path%></li>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
 </html>

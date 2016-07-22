@@ -23,6 +23,7 @@
         <td><%= employee.gender %></td>
         <td><%= employee.email %></td>
         <td><%= employee.phone %></td>
+        <td><%= link_to 'New Message', new_message_path(user_id:employee.id), class:"btn btn-default" %>
         <td><%= link_to 'Show', employee_path(employee), class:"btn btn-default" %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee), class:"btn btn-default" %></td>
         <td><%= link_to 'Destroy', employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default" %></td>

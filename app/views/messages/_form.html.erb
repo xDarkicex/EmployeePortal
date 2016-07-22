@@ -1,19 +1,15 @@
-<%= form_for(@help_ticket) do |f| %>
-  <% if @help_ticket.errors.any? %>
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@help_ticket.errors.count, "error") %> prohibited this help_ticket from being saved:</h2>
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
       <ul>
-      <% @help_ticket.errors.full_messages.each do |message| %>
+      <% @message.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :device %><br>
-    <%= f.text_field :device %>
-  </div>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -22,6 +18,9 @@
     <%= f.label :body %><br>
     <%= f.text_area :body, :class => 'ckeditor' %>
   </div>
+  <% if params[:user_id] %>
+    <%= f.hidden_field :user_id, value: params[:user_id] %>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

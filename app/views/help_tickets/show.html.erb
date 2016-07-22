@@ -16,14 +16,18 @@
 </p>
 
 <p>
-  <strong>Comments:</strong>
-  <%= @help_ticket.comments.count %>
+  <strong>Body:</strong>
+  <%= @help_ticket.body.html_safe %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @help_ticket.body %>
+  <strong>Comments:</strong>
+  <% @help_ticket.comments.where(comment_id:nil).each do |cm| %>
+    <%= render partial: 'comments/comment', locals:{comment:cm} %>
+  <% end %>
 </p>
 
+
+<%= link_to 'New Comment', new_help_ticket_comment_path(@help_ticket) %>
 <%= link_to 'Edit', edit_help_ticket_path(@help_ticket) %> |
 <%= link_to 'Back', help_tickets_path %>

@@ -2,9 +2,6 @@ class EmployeesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_employee, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_admin, only: [:destroy]
-
-  # GET /employees
-  # GET /employees.json
   def index
     @employees = User.all
   end

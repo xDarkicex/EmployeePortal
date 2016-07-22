@@ -1,10 +1,9 @@
-class HelpTicket
+class Message
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :device, type: String
   field :title, type: String
-  field :pinned, type: Boolean, default: false
-  has_many :comments
   field :body, type: String
   belongs_to :user
+  validates_presence_of :title, :message => "Can't be blank"
+  validates_presence_of :body, :message => "Can't be blank"
 end

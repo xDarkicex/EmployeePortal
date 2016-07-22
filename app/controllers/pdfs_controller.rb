@@ -1,33 +1,30 @@
 class PdfsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_pdf, only: [:show, :edit, :update, :destroy]
+  before_action :set_pdf, only: [:show, :edit, :update, :destroy, :toggle_pinned]
   before_action :authenticate_admin, only: [:new, :create, :destroy, :edit, :update]
 
   def download_file
  redirect_to paperclip_attachment.file.url
 end
-  # GET /pdfs
-  # GET /pdfs.json
   def index
     @pdfs = Pdf.all
-  end
 
-  # GET /pdfs/1
-  # GET /pdfs/1.json
+  end
   def show
   end
-
-  # GET /pdfs/new
   def new
     @pdf = Pdf.new
   end
-
-  # GET /pdfs/1/edit
   def edit
   end
+  def toggle_pinned
+    if(current_user.pdfs.find(@pdf.id).any?)
+      current_user.pdfs.delete(@pdf)
+    else
+      current_user.pdfs << @pdf
+    end
+  end
 
-  # POST /pdfs
-  # POST /pdfs.json
   def create
     @pdf = Pdf.new(pdf_params)
 
@@ -41,9 +38,6 @@ end
       end
     end
   end
-
-  # PATCH/PUT /pdfs/1
-  # PATCH/PUT /pdfs/1.json
   def update
     respond_to do |format|
       if @pdf.update(pdf_params)
@@ -55,9 +49,6 @@ end
       end
     end
   end
-
-  # DELETE /pdfs/1
-  # DELETE /pdfs/1.json
   def destroy
     @pdf.destroy
     respond_to do |format|

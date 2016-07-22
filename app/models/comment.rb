@@ -3,5 +3,7 @@ class Comment
   include Mongoid::Timestamps
   field :body, type: String
   belongs_to :user
-  embedded_in :help_ticket
+  has_many :comments
+  belongs_to :comment
+  belongs_to :help_ticket
 end

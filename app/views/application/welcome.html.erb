@@ -1,0 +1,37 @@
+<div>
+  <% if user_signed_in? %>
+    Welcome <%= current_user.name %>
+
+    <% current_user.messages.each do |msg| %>
+      <%= msg.title %>
+      <%= msg.body.html_safe %>
+    <% end %>
+
+    <% Message.where(user_id:nil).each do |msg| %>
+      <%= msg.title %>
+      <%= msg.body.html_safe %>
+    <% end %>
+
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %>
+    <h1>Unauthorized Entry</h1>
+    <p>employees please Sign in, if you are a new employee please sign up</P>
+      <strong>Current Employees:</strong><%= link_to "Sign in", new_user_session_path%><br>
+      <strong>New Employees:</strong><%= link_to "Sign up", new_user_registration_path %>
+  <% end %>
+</div>
+<% if user_signed_in? && current_user.admin %>
+  <div>
+    <div>
+      <div class="administrative">
+        <%= render partial: 'admin/administrativepanel' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <div class="Pinned">
+    <h2>Favorited Documents</h2>
+    <%= render partial: 'pdfs/pinned' %>
+  </div>
+<% end %>

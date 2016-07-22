@@ -7,4 +7,6 @@ class Pdf
   field :pinned, type: Boolean, default: false
   field :pdfname, type: String
   validates :pdfname, uniqueness: true
+
+  has_and_belongs_to_many :users
 end

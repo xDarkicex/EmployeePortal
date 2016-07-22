@@ -3,11 +3,15 @@ class ApplicationController < ActionController::Base
 
   # app/views/application/index.html.haml
   before_action :configure_permitted_parameters, if: :devise_controller?
-  def index
+
+  def welcome
+    @employees = User.all
+    @pdfs = Pdf.all
+    @products = Product.all
   end
 
   def authenticate_admin
-    redirect_to "http://www.lmgtfy.com?q=go+away" unless current_user.admin
+    redirect_to "http://www.lmgtfy.com?q=go+away+this+is+private" unless current_user.admin
   end
   protected
   def configure_permitted_parameters

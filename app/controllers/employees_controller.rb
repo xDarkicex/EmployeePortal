@@ -38,6 +38,6 @@ class EmployeesController < ApplicationController
       @employee = User.find(params[:id])
     end
     def employee_params
-      params.require(:user).permit(:avatar, :bio, :gender, :sexuality, :skills, :name, :jobtitle, :phone, :portfolio, :email, :username, :incomingserver, :incomingport, :outgoingserver, :smtpport, :employeepassword, :admin, :region, :salesrep, :shipping, :packaging, :officestaff, :watertreatment)
+      params.require(:user).permit(:sudoadmin,:avatar,:bio,:gender,:sexuality,:skills,:name,:jobtitle,:phone, :portfolio,:email,:username,:incomingserver,:incomingport,:outgoingserver,:smtpport,:employeepassword,:admin,:region,:salesrep,:shipping,:packaging,:officestaff,:watertreatment)
     end
 end

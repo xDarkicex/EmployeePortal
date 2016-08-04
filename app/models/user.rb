@@ -13,6 +13,7 @@ class User
   field :officestaff, type: Boolean, default: false
   field :watertreatment, type: Boolean, default: false
   field :admin, type: Boolean, default: false
+  field :sudoadmin, type: Boolean, default: false
   field :skills, type: String
   field :gender, type: String
   field :sexuality, type: String
@@ -27,7 +28,6 @@ class User
   field :bio, type: String
 
   has_many :posts
-  has_many :welcomes
   has_many :todos
   has_many :messages
   has_and_belongs_to_many :pdfs

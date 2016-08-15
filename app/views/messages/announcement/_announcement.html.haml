@@ -1,0 +1,5 @@
+- if msg
+  %p
+    Public Announcement from: #{msg.sender_name}
+  = msg.title
+  = msg.body.html_safe

@@ -1,0 +1,25 @@
+%p#notice= notice
+%h1 Listing Employees
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th Employee Name
+      %th Jobtitle
+      %th Skills
+      %th Gender
+      %th Email
+      %th Phone
+  %tbody
+    - @employees.each do |employee|
+      %tr{"data-href" => "#{employee_url(employee)}"}
+        %td= link_to image_tag(employee.avatar.url(:thumb), class:"indexedemployee img-thumbnail"), employee_path(employee)
+        %td= link_to employee.name, employee_path(employee), class: "btn btn-link"
+        %td= employee.jobtitle
+        %td= employee.skills
+        %td= employee.gender
+        %td= employee.email
+        %td= employee.phone
+%br/
+- if admin?
+  = link_to 'New Employee', new_user_registration_path, class:"btn btn-default"

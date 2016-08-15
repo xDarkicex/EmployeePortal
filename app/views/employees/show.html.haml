@@ -1,0 +1,107 @@
+%p#notice= notice
+.profileContainer
+  .titleContainer
+    %h2
+      %strong= @employee.name
+    - if @employee.admin
+      %span.adminbadge
+        %strong.btn.btn-success ADMIN
+    - if @employee.salesrep
+      %span.adminbadge
+        %strong.btn.btn-success Sales Rep
+    - if @employee.shipping
+      %span.adminbadge
+        %strong.btn.btn-success Shipping
+    - if @employee.packaging
+      %span.adminbadge
+        %strong.btn.btn-success Packaging
+    - if @employee.officestaff
+      %span.adminbadge
+        %strong.btn.btn-success Office Staff
+    - if @employee.watertreatment
+      %span.adminbadge
+        %strong.btn.btn-success Water Treatment
+  %div
+    %div
+      .avatar
+        = image_tag @employee.avatar.url(:medium), class: "img-thumbnail showemployee"
+      .infoContainer
+        .rows
+          .column
+            %strong Job Title:
+            = @employee.jobtitle
+            - if @employee.salesrep == true
+              .region
+                %strong Sales Region
+                = @employee.region
+            %p
+              %strong Skills:
+              = @employee.skills
+            %p
+              %strong About Me:
+              = @employee.bio.html_safe
+            -# %p
+            -#   %strong Gender:
+            -#   = @employee.gender
+            -# %p
+            -#   %strong Sexuality:
+            -#   = @employee.sexuality
+            %p
+              %strong Phone:
+              = @employee.phone
+            %p
+              %strong Email:
+              = mail_to @employee.email,  @employee.name
+        - if current_user == @employee || admin?
+          .emailsettingscontainer
+            .emailheader
+              %h3 Email Settings
+              %p Below are instruction on how to setup your easycarewater email account
+            .emailoptions
+              %ul
+                %li.btn.btn-primary.emailbuttons{type:"button", data:{for:'iphone'}} iPhone
+                %li.btn.btn-primary.emailbuttons{type:"button", data:{for:'android'}} Android
+                %li.btn.btn-primary.emailbuttons{type:"button", data:{for:'computer'}} Computer
+            .emailsettings
+              %strong Email: #{@employee.email}
+              %strong Username: #{@employee.email}
+              %strong.password Username: #{@employee.employeepassword}
+              %strong Outgoing Server: #{Rails.application.config.email_information[:outgoingserver]}
+              %strong Incoming Server: #{Rails.application.config.email_information[:incomingserver]}
+              %strong Incoming IMAP Port: #{Rails.application.config.email_information[:incomingport]}
+              %strong Outgoing SMTP Port: #{Rails.application.config.email_information[:smtpport]}
+            .emailextra
+              .computer
+                %h3 Video Instructions
+                %p How to add custom work email to outlook on windows
+                %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/0zOPbN81PUo", :width => "420"}
+                %h3 Free Alternative Email Client
+                %p Thunderbird is a very capable desktop replacement for Microsoft Outlook. Thunderbird is a open source email client powered by the mozilla corporation. This email client is a highly recommended replacement for Microsoft, if you are unwilling or unable to purchase a copy of Microsoft Outlook.
+                %a{:href => "https://www.mozilla.org/en-US/thunderbird/"} Thunder Bird
+              .iphone
+                %h3 iPhone Video Instructions
+                %p How to add custom work email to Mail on iphone devices.
+                %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/688VzjhGEjo", :width => "560"}
+              .android
+                %h3 Video Instructions
+                %p How to add custom work email to Android email serivce.
+                %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/nZ-ra9pOL5U", :width => "560"}
+        .ta
+          %h3 Open Technical Assistance Tickets
+          - @employee.help_tickets.each do |ticket|
+            = link_to "#{ticket.created_at.to_s :short} Help Ticket #{ticket.title}", ticket
+        - if current_user.id == @employee.id || admin?
+          = link_to 'Edit', edit_employee_path(@employee), class:"btn btn-default"
+          |
+        = link_to 'Back', employees_path, class:"btn btn-default"
+    .wallcontainer
+:javascript
+  $(function(){
+    var $children = $('.emailextra').children().hide();
+    $('.emailbuttons').click(function(e){ $children.hide(); $('.'+e.target.dataset.for).show(); });
+  });
+:scss
+  .emailsettings {
+    display:flex;
+    flex-direction:column;
+  }

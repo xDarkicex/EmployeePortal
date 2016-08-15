@@ -1,0 +1,14 @@
+%p#notice= notice
+= form_for(@pdf) do |f|
+  .field
+    = f.label :pinned
+    %br/
+    = f.check_box :pinned
+    = f.submit
+%p
+  = @pdf.pdfname
+%p
+  = link_to "Download", @pdf.document.url, class:"btn btn-default"
+= link_to 'Edit', edit_pdf_path(@pdf), class:"btn btn-default"
+|
+= link_to 'Back', pdfs_path, class:"btn btn-default"

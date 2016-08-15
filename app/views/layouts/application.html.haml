@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title EmployeePortal
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container-fluid
+      %h2 Bata rev. #{Rails.application.config.assets.version}
+      %nav.navbar.navbar-default
+        .container-fluid
+          = link_to "Home", root_path, class: "navbar-brand"
+          %ul.nav.navbar-nav
+            %li= link_to "Employees", employees_path
+            %li= link_to "Products", products_path
+            %li= link_to "pdfs", pdfs_path
+            %li= link_to "Technical Support", help_tickets_path
+          .rightnav
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                - if user_signed_in?
+                  - if admin?
+                    %a{:href => "#{employee_path(current_user)}"} ADMIN
+                  %li= image_tag current_user.avatar.url(:medium), class: "img-thumbnail thumbemployee"
+                  %li= link_to current_user.name, employee_path(current_user)
+                  %li= link_to "Sign out", destroy_user_session_path, :method => :delete
+                - else
+                  %li= link_to "Sign in", new_user_session_path
+                  %li= link_to "Sign up", new_user_registration_path
+      = yield

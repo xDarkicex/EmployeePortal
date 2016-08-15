@@ -1,0 +1,15 @@
+%div
+  - if user_signed_in?
+    Welcome #{current_user.name}
+    \#{render partial: 'messages/announcement/announcement', locals:{msg: @announcement}}
+    \#{render partial: 'messages/private_messages', locals:{messages: @private_messages}}
+  - else
+    = render partial: 'application/dashcomponents/signin'
+- if user_signed_in? && current_user.admin
+  %div
+    .administrative
+      = render partial: 'admin/administrativepanel'
+- if user_signed_in?
+  .Pinned
+    %h2 Favorited Documents
+    = render partial: 'pdfs/pinned'

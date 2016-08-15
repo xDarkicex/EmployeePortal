@@ -1,0 +1,23 @@
+= form_for(@pdf) do |f|
+  - if @pdf.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@pdf.errors.count, "error")
+        prohibited this pdf from being saved:
+      %ul
+        - @pdf.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :pinned
+    %br/
+    = f.check_box :pinned
+  .field
+    = f.label :pdfname
+    %br/
+    = f.text_field :pdfname
+  .field
+    = f.label :document
+    %br/
+    = f.file_field :document
+  .actions
+    = f.submit

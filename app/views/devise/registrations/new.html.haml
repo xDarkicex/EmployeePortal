@@ -1,0 +1,58 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, autofocus: true
+  .field
+    = f.label :avatar
+    %br/
+    = f.file_field :avatar
+  .field
+    = f.label :jobtitle
+    %br/
+    = f.text_field :jobtitle
+  .field
+    = f.label :salesrep
+    = f.check_box :salesrep
+  .field
+    = f.label :region
+    %br/
+    = f.select( :region, [['North California','North California'], ['Central California','Central California'], ['South California','South California'], ['Bay Area', 'Bay Area'], ['Midwest','Midwest'], ['Texas','Texas'], ['Arizona','Arizona'], ['Florida', 'Florida'], ['East Coast', 'East Coast']], {})
+  .field
+    = f.label :skills
+    %br/
+    = f.text_field :skills
+  .field
+    = f.label :gender
+    = f.select( :gender, [['Male', 'Male'], ['Female', 'Female'], ['Custom', 'Custom']], {})
+  .field
+    = f.label :sexuality
+    = f.select( :sexuality, [['Gay', 'Gay'], ['Straight', 'Straight'], ['Bisexual', 'Bisexual'], ['Asexual', 'Asexual'], ['Two-Spirit', 'Two-Spirit'], ['', 'Custom'], ['Custom', 'Custom']], {})
+  .field
+    = f.label :bio
+    %br/
+    = f.text_area :bio, placeholder: "Your Text here....", rows: 5, cols: 100
+  .field
+    = f.label :phone
+    %br/
+    = f.text_field :phone
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"

@@ -1,0 +1,41 @@
+%p#notice= notice
+%p
+  %strong Product photo:
+  = image_tag @product.productphoto.url(:medium), class:"showproduct  img-thumbnail"
+%p
+  %strong Name:
+  = @product.name
+%p
+%table.table.table-striped
+  %thead
+    %tr
+      %th Product Pricing:
+      %th 8 Ounce
+      %th 64 Ounce
+      %th 5 Gallon Pail
+      %th 55 Gallon Drum
+  %tbody
+    %tr
+      %td
+      %td
+        $
+        %span.price8oz= @product.price8oz
+      %td
+        $
+        %span.price64oz= @product.price64oz
+      %td
+        $
+        %span.price5gal= @product.price5gal
+        %br/
+      %td
+        $
+        %span.price55gal= @product.price55gal
+%p
+  %strong Descripton:
+  = @product.descripton
+%p
+  %strong Dosage Information:
+  = link_to 'Dosage', @product.dosage
+= link_to 'Edit', edit_product_path(@product), class:"btn btn-default"
+|
+= link_to 'Back', products_path, class:"btn btn-default"

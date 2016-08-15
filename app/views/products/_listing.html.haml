@@ -1,0 +1,19 @@
+%h3 Current Product Listing
+= link_to 'New Product', new_product_path, class:"btn btn-default"
+%table.table.table-striped
+  %thead
+    %tr
+      %th Product photo
+      %th Name
+      %th{colspan: '3'} Descripton
+      -# %th{:colspan => "5"}
+  %tbody
+    - @products.each do |product|
+      %tr{"data-href" => "#{product_url(product)}"}
+        %td= image_tag product.productphoto.url(:medium), class:"indexedproduct  img-thumbnail"
+        %td= product.name
+        %td= product.descripton
+        %td
+          = link_to 'Show', product, class:"btn btn-default"
+          = link_to 'Edit', edit_product_path(product), class:"btn btn-default"
+          = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default"

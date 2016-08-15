@@ -22,6 +22,8 @@ gem 'ckeditor_rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'devise'
+gem 'data_href_highlight', '~> 0.1.4'
+gem 'haml-rails', "~>0.9"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

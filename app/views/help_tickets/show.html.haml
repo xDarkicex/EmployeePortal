@@ -1,0 +1,21 @@
+%p#notice= notice
+%p
+  %strong User:
+  = @help_ticket.user.name
+%p
+  %strong Device:
+  = @help_ticket.device
+%p
+  %strong Title:
+  = @help_ticket.title
+%p
+  %strong Body:
+  = @help_ticket.body.html_safe
+%p
+  %strong Comments:
+  - @help_ticket.comments.where(comment_id:nil).each do |cm|
+    = render partial: 'comments/comment', locals:{comment:cm}
+= link_to 'New Comment', new_help_ticket_comment_path(@help_ticket)
+= link_to 'Edit', edit_help_ticket_path(@help_ticket)
+|
+= link_to 'Back', help_tickets_path

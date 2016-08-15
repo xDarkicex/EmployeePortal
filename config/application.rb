@@ -31,5 +31,11 @@ module EmployeePortal
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.email_information = {
+      smtpport: '465',
+      incomingport: '993',
+      incomingserver: 'host184.hostmonster.com',
+      outgoingserver: 'host184.hostmonster.com'
+    }
   end
 end

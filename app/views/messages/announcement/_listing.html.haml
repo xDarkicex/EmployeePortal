@@ -1,0 +1,11 @@
+%h1 Current Message to Employees
+- @messages.each do |f|
+  .field
+    = f.title
+    = f.body.html_safe
+    = link_to 'Show', f
+    = link_to 'Edit', edit_message_path(f)
+    - if admin?
+      = link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'message', new_message_path

@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @message.title
+%p
+  %strong Message:
+  = @message.body.html_safe
+- if @message.user_id
+  User: #{@message.user_id}
+= link_to 'Back', messages_path

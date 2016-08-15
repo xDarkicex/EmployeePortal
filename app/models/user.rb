@@ -19,17 +19,18 @@ class User
   field :sexuality, type: String
   field :email, type: String
   field :employeepassword, type: String
-  field :username, type: String
-  field :incomingserver, type: String
-  field :incomingport, type: String
-  field :outgoingserver, type: String
-  field :smtpport, type: String
+  # field :username, type: String
+  # field :incomingserver, type: String
+  # field :incomingport, type: String
+  # field :outgoingserver, type: String
+  # field :smtpport, type: String
   field :phone, type: String
   field :bio, type: String
 
   has_many :posts
   has_many :todos
   has_many :messages
+  has_many :help_tickets
   has_and_belongs_to_many :pdfs
 
   validates_presence_of :name, :message => "Can't be blank"

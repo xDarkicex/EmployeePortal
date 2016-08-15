@@ -1,0 +1,5 @@
+- messages.each do |msg|
+  %p
+    Private message from: #{msg.sender_name}
+  = msg.title
+  = msg.body.html_safe

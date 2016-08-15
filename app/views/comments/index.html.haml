@@ -1,0 +1,19 @@
+%p#notice= notice
+%h1 Listing Comments
+%table
+  %thead
+    %tr
+      %th User
+      %th Body
+      %th{:colspan => "3"}
+  %tbody
+    - @comments.each do |comment|
+      %tr
+        %td= comment.user
+        %td= comment.body
+        %td= link_to 'Comment', new_help_ticket_comment_comment_path(comment_id: comment.id)
+        %td= link_to 'Show', comment
+        %td= link_to 'Edit', edit_comment_path(comment)
+        %td= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Comment', new_comment_path

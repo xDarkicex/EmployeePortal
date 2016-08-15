@@ -1,0 +1,27 @@
+%h3 Employee Listing
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th Employee Name
+      %th Jobtitle
+      %th Skills
+      %th Gender
+      %th Email
+      %th Phone
+      %th{:colspan => "3"}
+  %tbody
+    - @employees.each do |employee|
+      %tr{"data-href" => "#{employee_url(employee)}"}
+        %td= link_to image_tag(employee.avatar.url(:thumb), class:"indexedemployee img-thumbnail"), employee_path(employee)
+        %td= link_to employee.name, employee_path(employee), class: "btn btn-link"
+        %td= employee.jobtitle
+        %td= truncate(employee.skills, length: 5)
+        %td= employee.gender
+        %td= employee.email
+        %td= employee.phone
+        %td
+          = link_to 'New Message', new_message_path(user_id:employee.id), class:"btn btn-default"
+          = link_to 'Show', employee_path(employee), class:"btn btn-default"
+          = link_to 'Edit', edit_employee_path(employee), class:"btn btn-default"
+          = link_to 'Destroy', employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default"

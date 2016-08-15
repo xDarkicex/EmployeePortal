@@ -1,0 +1,24 @@
+= form_for(@message) do |f|
+  - if @message.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@message.errors.count, "error")
+        prohibited this message from being saved:
+      %ul
+        - @message.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .field
+    = f.label :body
+    %br/
+    = f.text_area :body, :class => 'ckeditor'
+  - if params[:user_id]
+    = f.hidden_field :user_id, value: params[:user_id]
+    = f.check_box :private, checked:true, style: 'display:none'
+  - else
+    = f.check_box :private, checked:false, style: 'display:none'
+  .actions
+    = f.submit

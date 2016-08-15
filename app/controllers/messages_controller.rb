@@ -16,6 +16,8 @@ class MessagesController < ApplicationController
   end
   def create
     @message = Message.new(message_params)
+    @message.sender_id = current_user.id
+    # @message.user = current_user
     # @message.user = current_user;
     respond_to do |format|
       if @message.save
@@ -40,6 +42,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:title, :body, :user_id)
+      params.require(:message).permit(:title, :body, :private, :user_id)
     end
 end

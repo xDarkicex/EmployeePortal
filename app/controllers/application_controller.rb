@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     @employees = User.all
     @pdfs = Pdf.all
     @products = Product.all
+    @announcement = Message.where(private:false).last
+    if user_signed_in?
+      @private_messages = current_user.messages
+    end
   end
 
   def authenticate_admin

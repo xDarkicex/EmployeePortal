@@ -1,0 +1,5 @@
+%p#notice= notice
+= render partial: 'listing'
+%br/
+- if admin?
+  = link_to 'New Pdf', new_pdf_path,  class: "btn btn-default"

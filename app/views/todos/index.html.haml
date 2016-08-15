@@ -1,0 +1,11 @@
+%p#notice= notice
+%h2 Current Tasks
+= link_to 'New List Item', new_todo_path
+%ol
+  - @todos.each do |todo|
+    = render 'todo', {todo:todo}
+%br/
+%h2 Finished Tasks
+%ol
+  - @todones.each do |tdone|
+    = render 'todo', {todo:tdone}

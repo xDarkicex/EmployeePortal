@@ -1,0 +1,23 @@
+= form_for(@help_ticket) do |f|
+  - if @help_ticket.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@help_ticket.errors.count, "error")
+        prohibited this help_ticket from being saved:
+      %ul
+        - @help_ticket.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :device
+    %br/
+    = f.text_field :device
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .field
+    = f.label :body
+    %br/
+    = f.text_area :body, :class => 'ckeditor'
+  .actions
+    = f.submit

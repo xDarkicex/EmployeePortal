@@ -10,17 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require dataHref
  *= require_tree .
  *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
-*[data-href] {
-  cursor:pointer;
-  &:hover{
-  background-color: rgb(14, 183, 255)!important;
-}
-}
 .nav{
   padding-left: 15px!important;
 }
@@ -43,8 +38,8 @@ img.img-thumbnail{
   align-items: center;
 }
 .indexedproduct{
-  width: 90px;
-  height: 120px;
+  width: 120px;
+  height: auto;
 }
 
 .titleContainer{
@@ -71,4 +66,12 @@ td {
 }
 div.field{
   width: 50%
+}
+
+table{
+  td:last-child{
+
+    text-align: right;
+
+  }
 }
